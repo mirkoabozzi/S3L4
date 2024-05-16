@@ -1,3 +1,7 @@
+//Array per estrazione
+const arrayVuotoEstrazione = [];
+console.log(arrayVuotoEstrazione);
+
 // 1 creare tabella 76 celle
 
 const creaCelle = (celle) => {
@@ -14,6 +18,8 @@ const creaCelle = (celle) => {
     divCelle.appendChild(nomeCella);
     //appendo tutte le cella al div
     selezioneDivTabella.appendChild(divCelle);
+    //aggingo all'array le celle
+    arrayVuotoEstrazione.push(divCelle);
   }
 };
 
@@ -21,12 +27,14 @@ const creaCelle = (celle) => {
 const bottone = document.querySelector("button");
 // genero numero casuale alla pressione
 bottone.addEventListener("click", function (event) {
-  const numeroCasuale = Math.floor(Math.random() * 76);
-  console.log(event);
-  console.log(numeroCasuale);
-});
+  const numeroCasuale = Math.floor(Math.random() * 77);
+  console.log(event); //verifico pressione bottone
+  console.log(numeroCasuale); //verifico numero generato
 
-//3 evidenzia cella col numero estratto
+  //3 evidenzia cella col numero estratto aggiungi classe?
+
+  arrayVuotoEstrazione[numeroCasuale].classList.add("coloraCellaEstratta");
+});
 
 // mantieni evidenziate le celle estratte
 
