@@ -2,6 +2,9 @@
 const arrayVuotoEstrazione = [];
 console.log(arrayVuotoEstrazione);
 
+//array numeri estratti
+const arrayNumeriEstratti = [];
+
 // 1 creare tabella 76 celle
 
 const creaCelle = (celle) => {
@@ -25,18 +28,22 @@ const creaCelle = (celle) => {
 
 //2 seleziona bottone per estrazione numero
 const bottone = document.querySelector("button");
+
 // genero numero casuale alla pressione
 bottone.addEventListener("click", function (event) {
-  const numeroCasuale = Math.floor(Math.random() * 77);
-  console.log(event); //verifico pressione bottone
+  //evito numero gia estratto
+  let numeroCasuale;
+  do {
+    numeroCasuale = Math.floor(Math.random() * 76) + 1; //genero numero casuale
+  } while (arrayNumeriEstratti.includes(numeroCasuale)); //verifica condizione numero già presente
+  arrayNumeriEstratti.push(numeroCasuale); //aggiungo numeri già estratti all'array
+  //   console.log(event); //verifico pressione bottone
   console.log(numeroCasuale); //verifico numero generato
 
-  //3 evidenzia cella col numero estratto aggiungi classe?
-
-  arrayVuotoEstrazione[numeroCasuale].classList.add("coloraCellaEstratta");
+  //3 evidenzia cella col numero estratto aggiungi classe
+  // aggiungi la classe al numero estratto dentro l'array
+  arrayVuotoEstrazione[numeroCasuale - 1].classList.add("coloraCellaEstratta");
 });
-
-// mantieni evidenziate le celle estratte
 
 // avvio funzioni al caricamento della pagina
 window.addEventListener("DOMContentLoaded", () => {
