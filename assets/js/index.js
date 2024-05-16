@@ -17,7 +17,14 @@ const creaCelle = (celle) => {
   }
 };
 
-//2 creare bottone per estrazione numero
+//2 seleziona bottone per estrazione numero
+const bottone = document.querySelector("button");
+// genero numero casuale alla pressione
+bottone.addEventListener("click", function (event) {
+  const numeroCasuale = Math.floor(Math.random() * 76);
+  console.log(event);
+  console.log(numeroCasuale);
+});
 
 //3 evidenzia cella col numero estratto
 
