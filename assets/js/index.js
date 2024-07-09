@@ -35,6 +35,9 @@ bottone.addEventListener("click", function (event) {
   let numeroCasuale;
   do {
     numeroCasuale = Math.floor(Math.random() * 76) + 1; //genero numero casuale
+    if (arrayNumeriEstratti.length > 76) {
+      break;
+    }
   } while (arrayNumeriEstratti.includes(numeroCasuale)); //verifica condizione numero già presente
   arrayNumeriEstratti.push(numeroCasuale); //aggiungo numeri già estratti all'array
   //   console.log(event); //verifico pressione bottone
